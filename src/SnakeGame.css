@@ -1,0 +1,142 @@
+body {
+  background: radial-gradient(circle, #0f0f0f, #1a1a1a);
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.snake-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-top: 5rem;
+}
+.snake-container img{
+  width: 30%;
+}
+
+/* Responsive game board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  aspect-ratio: 1; /* keep square */
+  width: 90vw;     /* scale with screen */
+  max-width: 500px;
+  margin: 20px auto;
+  background: #222;
+  padding: 5px;
+  border: 3px solid limegreen;
+  border-radius: 10px;
+  box-shadow: 0 0 20px limegreen;
+}
+
+.cell {
+  background: #333;
+  border-radius: 4px;
+}
+
+/* Snake body */
+.snake {
+  background: linear-gradient(145deg, #2ecc71, #27ae60);
+  border-radius: 7px;
+  box-shadow: inset 0 0 4px #0f0;
+}
+
+/* Snake head */
+.snake.head {
+  background: linear-gradient(145deg, #006600, #009900);
+  border-radius: 50%;
+  position: relative;
+}
+
+/* Snake eyes */
+.snake.head::before,
+.snake.head::after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  background: white;
+  border-radius: 50%;
+  top: 25%;
+}
+
+.snake.head::before {
+  left: 25%;
+}
+.snake.head::after {
+  right: 25%;
+}
+
+/* Food as apple */
+.food::before {
+  content: "🍎";
+  font-size: clamp(12px, 2vw, 20px); /* responsive size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Controls */
+.controls {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls div {
+  display: flex;
+  gap: 8px;
+}
+
+.controls button {
+  font-size: clamp(18px, 5vw, 32px);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #27ae60;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.controls button:hover {
+  background: #2ecc71;
+  box-shadow: 0 0 10px #2ecc71;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .board {
+    width: 95vw;
+    max-width: none;
+  }
+  .controls button {
+    padding: 8px 14px;
+  }
+}
+
+
+.pause-btn {
+  font-size: 18px;
+  margin: 10px;
+  padding: 10px 20px;
+  background: orange;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.pause-btn:hover {
+  background: darkorange;
+  box-shadow: 0 0 10px orange;
+}
