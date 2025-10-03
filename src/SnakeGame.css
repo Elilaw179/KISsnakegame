@@ -15,8 +15,9 @@ body {
   padding: 10px;
  
 }
-.snake-container img{
-  width: 30%;
+
+.snake-container p{
+  color: orange;
 }
 
 /* Responsive game board */
